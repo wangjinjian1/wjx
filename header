@@ -2,15 +2,14 @@ Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/w
 Accept-Encoding: gzip, deflate, br
 Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7,ja;q=0.6,zh-TW;q=0.5
 Connection: keep-alive
-Cookie: acw_tc=76b20f6416280759283894785e10d2c0d1940b5d5c0668087640f5a28afcf5; .ASPXANONYMOUS=IiW8VbS_1wEkAAAAOWI0MjkwNmItODFhYi00NGJkLWE4YzgtNGE1YmNlNjU3ZWI5k4Av87jJ7GzDUbtTRXCZctK7X-U1; jac126291626=45442824; UM_distinctid=17b10e367bb2e-0ab33980e14edf-35607403-1fa400-17b10e367bc281; CNZZDATA4478442=cnzz_eid%3D90595931-1628072981-%26ntime%3D1628072981; jcn126291626=%E6%B5%8B%E8%AF%95; LastActivityJoin=126291626,110033531618; SERVERID=2db31da2a1668d5c3a8bdf6325ab9864|1628076015|1628075928; join_126291626=1
+Cookie: acw_tc=781bad2a16282251995062955e41434ce65a5b7eb446b9f38678e3c1a2e260; .ASPXANONYMOUS=axY-4g_B1wEkAAAANDc1NjI1Y2UtM2Y3MS00Nzg0LWI2ZmMtOWI5NzM4OTJlOTBh0ZyI8JnVmxziDweeNbX501bN_Qs1; jac126547691=60212928; UM_distinctid=17b19c8df1c3b-05ee8b8d8ac29f-35637203-1aeaa0-17b19c8df1d8a; CNZZDATA4478442=cnzz_eid%3D1119265248-1628223661-%26ntime%3D1628223661; Hm_lvt_21be24c80829bd7a683b2c536fcf520b=1628209133,1628209171,1628209197,1628213507; jcn126547691=%E8%A1%8C%E4%B8%BA; LastActivityJoin=126547691,110051461259; join_126547691=1; SERVERID=2db31da2a1668d5c3a8bdf6325ab9864|1628225322|1628225199; wjxawardload=6577%7C126547691; Hm_lpvt_21be24c80829bd7a683b2c536fcf520b=1628225323
 DNT: 1
 Host: ks.wjx.top
-Referer: https://ks.wjx.top/vj/tbrk32o.aspx
 sec-ch-ua: "Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92"
 sec-ch-ua-mobile: ?0
 Sec-Fetch-Dest: document
 Sec-Fetch-Mode: navigate
-Sec-Fetch-Site: same-origin
+Sec-Fetch-Site: none
 Sec-Fetch-User: ?1
 Upgrade-Insecure-Requests: 1
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36

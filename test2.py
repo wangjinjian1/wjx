@@ -65,7 +65,6 @@ def get_jqParam(rn, start_time, id1):
             return abcd3(p2, preCloseCallbackResult) + preCloseCallbackResult[p1]
 
     jqparam = abcd3(littleEndian, preCloseCallbackResult)
-    print(jqparam)
     item = 0
     map = list(jqparam)
     for i in range(0, len(jqparam)):
@@ -81,14 +80,15 @@ def get_jqParam(rn, start_time, id1):
     return jqparam
 
 
-ktimes = 37
-jqnonce = '6a4b01e7-13f8-468e-960b-a14a16691646'
-rn = '3525359268.74921822'
-stt = '2021/8/5 22:05:07'
+ktimes = 27
+jqnonce = 'bc47e6bf-b5c8-4819-8c7e-3849d9bc07bc'
+rn = '1963660760.55202358'
+stt = '2021/8/6 12:37:20'
 #'2021-08-05 22:05:07'
 #1628172307000
 #1628172307000
-id1 = '2038256564'
+id1 = '126547691'
+#2038388918
 print(dan(ktimes, jqnonce))
-print(dan(ktimes, '测试'))
+print(dan(ktimes, '实施'))
 print(get_jqParam(rn, stt, id1))

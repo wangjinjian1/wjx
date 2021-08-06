@@ -88,8 +88,11 @@ with open('header', 'r') as f:
     for s in f.readlines():
         arr = s.split(':')
         headers[arr[0].strip()] = arr[1].strip()
-url = 'https://ks.wjx.top/vm/wURtp3K.aspx'
+url = 'https://ks.wjx.top/vm/mFhmwDW.aspx'
 res = session.get(url, headers=headers)
+cookies=res.headers['Set-Cookie']
+print(res.request.headers)
+print(res.headers)
 text = res.text
 html = etree.HTML(text)
 
@@ -97,10 +100,10 @@ with open('qtr', 'r') as f:
     for s in f.readlines():
         arr = s.split(':')
         qtr[arr[0].strip()] = arr[1].strip()
-activityId = re.search(r'(?<=activityId \=)\d+', text).group()
+activityId = re.search(r'(?<=jac)\d+',cookies).group()
 jqnonce = re.search(r'.{8}-.{4}-.{4}-.{4}-.{12}', text).group()
 ktimes = random.randint(30, 60)
-shortid = 'wURtp3K'
+shortid = url.split('/')[-1].split('.')[0]
 starttime = re.search(r'\d+?/\d+?/\d+?\s\d+?:\d{2}:\d{2}', text).group()
 rn = re.search(r'\d{9,10}\.\d{8}', text).group()
 qtr['shortid'] = shortid
@@ -108,27 +111,30 @@ qtr['t'] = time_stamp = '{}{}'.format(int(time.time()), random.randint(100, 200)
 qtr['starttime'] = starttime
 qtr['ktimes'] = ktimes
 qtr['rn'] = rn
-qtr['jcn'] = dan(ktimes, '测试')
+qtr['jcn'] = dan(ktimes, '线不行')
 qtr['jqpram'] = get_jqParam(rn, starttime, activityId)
 qtr['jqnonce'] = jqnonce
 qtr['jqsign'] = dan(ktimes, jqnonce)
-print(qtr)
+
 
 nodes = html.xpath('//div[@class="field ui-field-contain"]')
 dic = {}
 for node in nodes:
     id = node.xpath('./@topic')[0]
     if id == '1':
-        dic[id] = '测试2'
+        dic[id] = '线不行'
     elif id == '2':
-        dic[id] = '134'
+        dic[id] = '1'
     else:
         dic[id] = '1'
 
 sortkey = sorted(int(a) for a in dic.keys())
 for num in sortkey:
     ans += '{}${}'.format(num, dic[str(num)]) + '}'
-print(ans[:-1])
 urlpost = 'https://ks.wjx.top/joinnew/processjq.ashx'
 res = session.post(url=urlpost, params=qtr, data={'submitdata': ans[:-1]})
+
+print(res.request.headers)
+print(res.headers)
+print(res.status_code)
 print(res.text)

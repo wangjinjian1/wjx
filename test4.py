@@ -1,207 +1,147 @@
+import requests, json,re,time,random
+from lxml import etree
+def dan(ktimes, jqnonce):
+    result = []
+    b = ktimes % 10
+    if b == 0:
+        b = 1
+    for char in list(jqnonce):
+        f = ord(char) ^ b
+        result.append(chr(f))
+    return ''.join(result)
 
-import js2py
-jscode='''
-var _0x7106a6 = function () {
-  var _0x6a2f9e = true;
-  return function (_0x41f5c2, _0xa2699c) {
-    var _0x185292 = _0x6a2f9e ? function () {
-      if (_0xa2699c) {
-        var _0x4ebf6c = _0xa2699c["apply"](_0x41f5c2, arguments);
 
-        _0xa2699c = null;
-        return _0x4ebf6c;
-      }
-    } : function () {};
+def get_jqParam(rn, start_time, id1):
+    """
+    使用 rn,starttime,activityId三个参数
+    :return:  jqParam的值
+    """
+    le = int(rn.split(".")[0])
+    state = 3597397
+    p1 = 2147483648
+    node = 2147483647
+    p2 = ~~int(le / p1)
+    p3 = 0
+    node1 = le & node
+    index = 3597397
+    p4 = p2 ^ 0
+    item = node1 ^ index
+    locaOffset = (p4 * p1) + item
+    starttime = int((time.mktime(time.strptime(start_time, '%Y/%m/%d %X'))) * 1000)
+    offset = int(starttime / 1000)
+    node = str(offset)
+    if (offset % 10) > 0:
+        node = node[::-1]
+    fn = int(node + "89123")
+    value = list(str(fn) + str(locaOffset))
+    a = "kgESOLJUbB2fCteoQdYmXvF8j9IZs3K0i6w75VcDnG14WAyaxNqPuRlpTHMrhz"
+    result = list(a)
+    id = len(result)
+    for i in range(0, len(value)):
+        try:
+            key = int(value[i])
+        except:
+            pass
+        value1 = result[key]
+        el = result[id - 1 - key]
+        result[key] = el
+        result[id - 1 - key] = value1
+    a = "".join(result)
+    preCloseCallbackResult = a
+    littleEndian = fn + locaOffset + int(id1)
 
-    _0x6a2f9e = false;
-    return _0x185292;
-  };
-}();
+    def abcd3(littleEndian, preCloseCallbackResult):
+        while True:
+            if littleEndian - 62 < 0:
+                return preCloseCallbackResult[littleEndian]
+            else:
+                p1 = littleEndian % 62
+                p2 = int(littleEndian / 62)
+                return abcd3(p2, preCloseCallbackResult) + preCloseCallbackResult[p1]
 
-(function () {
-  _0x7106a6(this, function () {
-    var _0x5d1dc8 = new RegExp("function *\\( *\\)");
-
-    var _0x30c3a5 = new RegExp("\\+\\+ *(?:_0x(?:[a-f0-9]){4,6}|(?:\\b|\\d)[a-z0-9]{1,4}(?:\\b|\\d))", "i");
-
-    var _0x2b378a = _0x24b04e("init");
-
-    if (!_0x5d1dc8["test"](_0x2b378a + "chain") || !_0x30c3a5["test"](_0x2b378a + "input")) {
-      _0x2b378a("0");
-    } else {
-      _0x24b04e();
-    }
-  })();
-})();
-
-function abcd1(_0x17164c) {
-  return abcd2(_0x17164c, 3597397);
+    jqparam = abcd3(littleEndian, preCloseCallbackResult)
+    item = 0
+    map = list(jqparam)
+    for i in range(0, len(jqparam)):
+        item = item + ord(map[i])
+    el = len(jqparam)
+    selected = item % el
+    el1 = []
+    for i in range(selected, el):
+        el1.append(map[i])
+    for i in range(0, selected):
+        el1.append(map[i])
+    jqparam = "".join(el1)
+    return jqparam
+judge = {
+    '错': '2',
+    '对': '1'
 }
-
-function abcd2(_0x1b1e02, _0x23f273) {
-  if (!abcdx()) {
-    return;
-  }
-
-  var _0x1f9ba1 = 2147483648;
-  var _0x3b83ae = 2147483647;
-
-  var _0x4ad458 = ~~(_0x1b1e02 / _0x1f9ba1);
-
-  var _0x470088 = ~~(_0x23f273 / _0x1f9ba1);
-
-  var _0x5bc159 = _0x1b1e02 & _0x3b83ae;
-
-  var _0x35dfa5 = _0x23f273 & _0x3b83ae;
-
-  var _0x353774 = _0x4ad458 ^ _0x470088;
-
-  var _0x4a742c = _0x5bc159 ^ _0x35dfa5;
-
-  return _0x353774 * _0x1f9ba1 + _0x4a742c;
+select = {
+    'A': '1',
+    'B': '2',
+    'C': '3',
+    'D': '4'
 }
+headers = {}
+with open('header2', 'r') as f:
+    for s in f.readlines():
+        arr = s.split(':')
+        headers[arr[0].strip()] = arr[1].strip()
 
-setInterval(function () {
-  _0x24b04e();
-}, 4000);
+ans = {}
+with open('1.json', 'r') as f:
+    ans = json.load(f)
 
-function abcd3(_0x420610, _0x1b425f) {
-  if (_0x420610 - 62 < 0) {
-    var _0xea36a8 = _0x1b425f["substr"](_0x420610, 1);
+html = etree.parse('1.html', etree.HTMLParser())
+text=html.tostring()
+print(test)
+nodes = html.xpath('//div[@class="field ui-field-contain"]')
+keys = ans.keys()
+questAns = {}
+questAns['1'] = '测试'
+questAns['2'] = '2333'
+for node in nodes:
+    id = node.xpath('./@topic')[0]
+    if int(id) < 3:
+        continue
+    if id in keys:
+        if len(ans[id][0]) == 1:
+            questAns[id] = judge[ans[id][0]]
+        elif len(ans[id][0]) == 0:
+            questAns[id] = -2
+        else:
+            if ans[id][0].find('┋') > 0:
+                aaa = ''
+                for s in ans[id][0].split('┋'):
+                    aaa += select[str(s.strip()[0])]
+                questAns[id] = aaa
+            else:
+                questAns[id] = select[ans[id][0].strip()[0]]
+list = sorted(int(a) for a in questAns.keys())
+ansS = ''
+for num in list:
+    ansS += '{}${}'.format(num, questAns[str(num)]) + '}'
+ansS=ansS[:-1]
+qtr={}
+with open('qtr', 'r') as f:
+    for s in f.readlines():
+        arr = s.split(':')
+        qtr[arr[0].strip()] = arr[1].strip()
+activityId = '126512813'
+shortid = 'PM73IkN'
+jqnonce = re.search(r'.{8}-.{4}-.{4}-.{4}-.{12}', text).group()
+ktimes = random.randint(30, 60)
 
-    return _0xea36a8;
-  }
-
-  var _0x45571c = _0x420610 % 62;
-
-  var _0x4e6181 = parseInt(_0x420610 / 62);
-
-  return abcd3(_0x4e6181, _0x1b425f) + _0x1b425f["substr"](_0x45571c, 1);
-}
-
-function abcd4(_0x11dbf0, _0x1558df) {
-  if (!abcdx()) {
-    return;
-  }
-
-  var _0x556c7b = _0x1558df["split"]("");
-
-  var _0x27312b = _0x1558df["length"];
-
-  for (var _0x107cfb = 0; _0x107cfb < _0x11dbf0["length"]; _0x107cfb++) {
-    var _0x410c33 = parseInt(_0x11dbf0[_0x107cfb]);
-
-    var _0x43a652 = _0x556c7b[_0x410c33];
-    var _0x433a77 = _0x556c7b[_0x27312b - 1 - _0x410c33];
-    _0x556c7b[_0x410c33] = _0x433a77;
-    _0x556c7b[_0x27312b - 1 - _0x410c33] = _0x43a652;
-  }
-
-  _0x1558df = _0x556c7b["join"]("");
-  return _0x1558df;
-}
-
-function abcd5(_0x5565b6) {
-  if (!abcdx()) {
-    return;
-  }
-
-  var _0x546e81 = 0;
-
-  var _0x5ed7b1 = _0x5565b6["split"]("");
-
-  for (var _0x28a6c3 = 0; _0x28a6c3 < _0x5ed7b1["length"]; _0x28a6c3++) {
-    _0x546e81 += _0x5ed7b1[_0x28a6c3]["charCodeAt"]();
-  }
-
-  var _0x5af006 = _0x5565b6["length"];
-
-  var _0x5258e0 = _0x546e81 % _0x5af006;
-
-  var _0x2b24c5 = [];
-
-  for (var _0x28a6c3 = _0x5258e0; _0x28a6c3 < _0x5af006; _0x28a6c3++) {
-    _0x2b24c5["push"](_0x5ed7b1[_0x28a6c3]);
-  }
-
-  for (var _0x28a6c3 = 0; _0x28a6c3 < _0x5258e0; _0x28a6c3++) {
-    _0x2b24c5["push"](_0x5ed7b1[_0x28a6c3]);
-  }
-
-  return _0x2b24c5["join"]("");
-}
-
-function abcdu(_0x92722d) {
-  var _0x2eb3ad = -480;
-
-  var _0x3a4ef4 = new Date()["getTimezoneOffset"]();
-
-  var _0x58cdae = _0x2eb3ad - _0x3a4ef4;
-
-  return _0x92722d["getTime"]() / 1000 + _0x58cdae * 60;
-}
-
-function abcdx() {
-  if (navigator["webdriver"]) {
-    return false;
-  }
-
-  if (document["$cdc_asdjflasutopfhvcZLmcfl_"]) {
-    return false;
-  }
-
-  if (/PhantomJS/["test"](window["navigator"]["userAgent"])) {
-    return false;
-  }
-
-  if (window["callPhantom"] || window["_phantom"]) {
-    return false;
-  }
-
-  return true;
-}
-
-$(function () {
-  setTimeout(function () {
-    window["hdm1113"] = true;
-  }, 1000);
-
-  function _0x3ef545(_0x151a89) {
-    if (_0x151a89["pageX"] > 0 && abcdx() && window["hdm1113"]) {
-      var _0x3098bf = rndnum["split"](".")[0];
-
-      var _0x4aaf4a = abcd1(parseInt(_0x3098bf));
-
-      var _0x149db2 = (_0x4aaf4a + "")["split"]("");
-
-      var _0x5b9ae2 = $("#starttime")["val"]() || window["initstime"];
-
-      var _0x4eae39 = abcdu(new Date(_0x5b9ae2["replace"](new RegExp("-", "gm"), "/")));
-
-      var _0x5050a2 = _0x4eae39 + "";
-
-      if (_0x4eae39 % 10 > 0) {
-        _0x5050a2 = _0x5050a2["split"]("")["reverse"]()["join"]("");
-      }
-
-      var _0xd16fcc = parseInt(_0x5050a2 + "89123");
-
-      var _0x149db2 = (_0xd16fcc + "" + (_0x4aaf4a + ""))["split"]("");
-
-      var _0x1b3de6 = abcd4(_0x149db2, "kgESOLJUbB2fCteoQdYmXvF8j9IZs3K0i6w75VcDnG14WAyaxNqPuRlpTHMrhz");
-
-      var _0x3a5cf2 = _0xd16fcc + _0x4aaf4a + parseInt(activityId);
-
-      jqParam = abcd3(_0x3a5cf2, _0x1b3de6);
-
-      var _0x5d90fd = abcd5(jqParam);
-
-      jqParam = _0x5d90fd;
-    }
-  }
-});
-
-'''
-js = js2py.EvalJs({})
-js.execute(jscode)
-# print(js.get_jqParam('3525359268.74921822','2021/8/5 22:05:07','2038256564'))
+starttime = re.search(r'\d+?/\d+?/\d+?\s\d+?:\d{2}:\d{2}', text).group()
+rn = re.search(r'\d{9,10}\.\d{8}', text).group()
+qtr['shortid'] = shortid
+qtr['t'] = time_stamp = '{}{}'.format(int(time.time()), random.randint(100, 200))
+qtr['starttime'] = starttime
+qtr['ktimes'] = ktimes
+qtr['rn'] = rn
+qtr['jcn'] = dan(ktimes, '线不行')
+qtr['jqpram'] = get_jqParam(rn, starttime, activityId)
+qtr['jqnonce'] = jqnonce
+qtr['jqsign'] = dan(ktimes, jqnonce)
+requests.post(url='')
