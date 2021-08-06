@@ -1,15 +1,17 @@
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 Accept-Encoding: gzip, deflate, br
 Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7,ja;q=0.6,zh-TW;q=0.5
+Cache-Control: max-age=0
 Connection: keep-alive
-Cookie: .ASPXANONYMOUS=LdrpfBrB1wEkAAAAYmEzNDVkMmEtMjc1Ny00ZWNiLTliNWEtMDQxYzkyMzY3NmRi840ZQdjJaphvp56q4och8uaYia01; UM_distinctid=17b1a0e5f8dac-057e484d86845a-35637203-1aeaa0-17b1a0e5f8e2a7; Hm_lvt_21be24c80829bd7a683b2c536fcf520b=1628209133,1628209171,1628209197,1628213507; jac126512813=16191942; jcn126512813=%E9%87%91%E8%8E%B9; acw_tc=76b20f6b16282347329262299e19ad73fa7ce254c9c6ebf6c541552e75e24e; LastActivityJoin=126512813,110051179655; join_126512813=1; Hm_lpvt_21be24c80829bd7a683b2c536fcf520b=1628234737; CNZZDATA4478442=cnzz_eid%3D1691846711-1628229061-%26ntime%3D1628230920; SERVERID=cc21817351f8f68275f7d6182934549e|1628234753|1628229753
+Cookie: acw_tc=781bad2c16282638053025502e3075c77ac017fd6c5ed7dc283530aa7eab50; .ASPXANONYMOUS=HSwXxWnB1wEkAAAAODk2OTY5YmQtMzAxNy00ZmQ3LWEwOWMtYTA2YzM5NTI0MDA5bv1x2Jl010J-uLEL50oQgFS2VXo1; jac126547691=97072038; UM_distinctid=17b1c15f2cd1fa-01554901d78e09-35607403-1fa400-17b1c15f2ce493; CNZZDATA4478442=cnzz_eid%3D1858640116-1628263320-%26ntime%3D1628263320; Hm_lvt_21be24c80829bd7a683b2c536fcf520b=1628168579,1628168611,1628169192,1628259253; Hm_lpvt_21be24c80829bd7a683b2c536fcf520b=1628263806; jcn126547691=%E8%A1%8C%E4%B8%BA; LastActivityJoin=126547691,110055244577; SERVERID=2db31da2a1668d5c3a8bdf6325ab9864|1628263837|1628263805; join_126547691=1
 DNT: 1
 Host: ks.wjx.top
+Referer: https://ks.wjx.top/wjx/join/completemobile2.aspx?activityid=mFhmwDW&joinactivity=110055244577&sojumpindex=17&tvd=2NrwsglfDx0%3d&costtime=33&comsign=2A33A12740CCA2977357CDB0CD2401EA74F0E5D9
 sec-ch-ua: "Chromium";v="92", " Not A;Brand";v="99", "Google Chrome";v="92"
 sec-ch-ua-mobile: ?0
 Sec-Fetch-Dest: document
 Sec-Fetch-Mode: navigate
-Sec-Fetch-Site: none
+Sec-Fetch-Site: same-origin
 Sec-Fetch-User: ?1
 Upgrade-Insecure-Requests: 1
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36

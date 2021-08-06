@@ -1,5 +1,7 @@
-import requests, json,re,time,random
+import requests, json, re, time, random
 from lxml import etree
+
+
 def dan(ktimes, jqnonce):
     result = []
     b = ktimes % 10
@@ -73,6 +75,8 @@ def get_jqParam(rn, start_time, id1):
         el1.append(map[i])
     jqparam = "".join(el1)
     return jqparam
+
+
 judge = {
     '错': '2',
     '对': '1'
@@ -94,12 +98,11 @@ with open('1.json', 'r') as f:
     ans = json.load(f)
 
 html = etree.parse('1.html', etree.HTMLParser())
-text=html.tostring()
-print(test)
+text = etree.tostring(html).decode()
 nodes = html.xpath('//div[@class="field ui-field-contain"]')
 keys = ans.keys()
 questAns = {}
-questAns['1'] = '测试'
+questAns['1'] = "哈哈"
 questAns['2'] = '2333'
 for node in nodes:
     id = node.xpath('./@topic')[0]
@@ -118,12 +121,12 @@ for node in nodes:
                 questAns[id] = aaa
             else:
                 questAns[id] = select[ans[id][0].strip()[0]]
-list = sorted(int(a) for a in questAns.keys())
+list1 = sorted(int(a) for a in questAns.keys())
 ansS = ''
-for num in list:
+for num in list1:
     ansS += '{}${}'.format(num, questAns[str(num)]) + '}'
-ansS=ansS[:-1]
-qtr={}
+ansS = ansS[:-1]
+qtr = {}
 with open('qtr', 'r') as f:
     for s in f.readlines():
         arr = s.split(':')
@@ -140,8 +143,11 @@ qtr['t'] = time_stamp = '{}{}'.format(int(time.time()), random.randint(100, 200)
 qtr['starttime'] = starttime
 qtr['ktimes'] = ktimes
 qtr['rn'] = rn
-qtr['jcn'] = dan(ktimes, '线不行')
+qtr['jcn'] = dan(ktimes,questAns['1'])
 qtr['jqpram'] = get_jqParam(rn, starttime, activityId)
 qtr['jqnonce'] = jqnonce
 qtr['jqsign'] = dan(ktimes, jqnonce)
-requests.post(url='')
+print(qtr)
+print(ansS)
+res=requests.post(url='https://ks.wjx.top/joinnew/processjq.ashx', headers=headers, data=ansS)
+print(res.text)
